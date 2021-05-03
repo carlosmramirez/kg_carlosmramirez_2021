@@ -13,14 +13,20 @@ const numberStrings = [
 ];
 
 const printStringArrFromIntArr = (nums) => {
+  if (!nums.length) {
+    process.stdout.write('Please enter numbers separated by a space!\n');
+    return;
+  }
+
   for (let i = 0; i < nums.length; i++) {
     printStringFromInt(nums[i]);
     
     if (i !== nums.length - 1 ) {
       process.stdout.write(',');
+    } else {
+      process.stdout.write('\n');
     }
   }
-  console.log();
 }
 
 const printStringFromInt = (numString) => {
