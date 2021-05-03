@@ -1,4 +1,4 @@
-const array = [3, 25, 209];
+const array = process.argv.slice(2);
 const numberStrings = [
   'Zero',
   'One', 
@@ -14,17 +14,20 @@ const numberStrings = [
 
 const printStringArrFromIntArr = (nums) => {
   for (let i = 0; i < nums.length; i++) {
-    let numToString = array[i].toString();
-    for (let j = 0; j < numToString.length; j++) {
-      let stringToPrint = numberStrings[parseInt(numToString[j])];
-      process.stdout.write(stringToPrint);
-    };
+    printStringFromInt(nums[i]);
     
     if (i !== nums.length - 1 ) {
       process.stdout.write(',');
     }
   }
   console.log();
+}
+
+const printStringFromInt = (numString) => {
+  for (let j = 0; j < numString.length; j++) {
+    let stringToPrint = numberStrings[parseInt(numString[j])];
+    process.stdout.write(stringToPrint);
+  }
 }
 
 printStringArrFromIntArr(array);
